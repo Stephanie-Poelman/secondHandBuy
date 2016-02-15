@@ -18,8 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         return true
         
-        // comment 
-        // second comment
+        // comment
     }
 
     func applicationWillResignActive(application: UIApplication) {
