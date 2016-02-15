@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
         
         // comment 
+        // second comment
     }
 
     func applicationWillResignActive(application: UIApplication) {
