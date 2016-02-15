@@ -1,47 +1,99 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="XLs-G1-LRF">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Home Screen View Controller-->
+        <scene sceneID="buR-5K-VqT">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SecondHandBuy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XLs-G1-LRF" customClass="HomeScreenViewController" customModule="SecondHandBuy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="Ipt-dn-hQX"/>
+                        <viewControllerLayoutGuide type="bottom" id="In6-7R-v6z"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="RiZ-Xv-15Z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="f63-YP-Bpb">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kO2-Ov-InQ">
+                                <rect key="frame" x="145" y="189" width="82" height="30"/>
+                                <state key="normal" title="Map Screen"/>
+                                <connections>
+                                    <action selector="clickToMapScreen:" destination="XLs-G1-LRF" eventType="touchUpInside" id="b6K-XD-r9I"/>
+                                    <segue destination="a8s-w5-LmF" kind="show" id="1aM-eq-Afg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dha-KT-Gp6">
+                                <rect key="frame" x="145" y="265" width="85" height="30"/>
+                                <state key="normal" title="Take Picture"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WIf-Pp-Q0C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="401.5" y="-517.5"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="Doa-XE-Amu">
+            <objects>
+                <viewController id="a8s-w5-LmF" customClass="MapViewController" customModule="SecondHandBuy" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SfQ-Dr-uOT"/>
+                        <viewControllerLayoutGuide type="bottom" id="owR-YU-oej"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nHt-t7-U5f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6wp-9Y-UXL">
+                                <rect key="frame" x="-8" y="0.0" width="391" height="667"/>
                             </mapView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="me6-hT-Gde">
+                                <rect key="frame" x="-4" y="28" width="383" height="44"/>
+                                <items>
+                                    <barButtonItem title="Back" id="rUX-ef-j1g">
+                                        <connections>
+                                            <segue destination="XLs-G1-LRF" kind="show" id="P1R-k4-FdD"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="tintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="f63-YP-Bpb" secondAttribute="bottom" id="4O0-7n-L07"/>
-                            <constraint firstItem="f63-YP-Bpb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="5gC-kd-LlY"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="f63-YP-Bpb" secondAttribute="trailing" constant="-20" id="Iuh-ri-2bl"/>
-                            <constraint firstItem="f63-YP-Bpb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Luf-rN-twd"/>
-                            <constraint firstItem="f63-YP-Bpb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Ncy-2K-u7U"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="f63-YP-Bpb" secondAttribute="bottom" id="Nwi-k0-N8k"/>
-                            <constraint firstItem="f63-YP-Bpb" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="Qes-IO-xpC"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="f63-YP-Bpb" secondAttribute="trailing" constant="-20" id="T13-0L-98y"/>
-                            <constraint firstItem="f63-YP-Bpb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="V2T-Lg-fjJ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="f63-YP-Bpb" secondAttribute="trailing" constant="-20" id="ZNM-Wc-1nd"/>
-                            <constraint firstItem="f63-YP-Bpb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="zm0-fs-CpD"/>
+                            <constraint firstItem="6wp-9Y-UXL" firstAttribute="leading" secondItem="nHt-t7-U5f" secondAttribute="leadingMargin" constant="-24" id="2jR-am-J2H"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="me6-hT-Gde" secondAttribute="trailing" constant="-20" id="4ss-iL-8hO"/>
+                            <constraint firstItem="6wp-9Y-UXL" firstAttribute="top" secondItem="SfQ-Dr-uOT" secondAttribute="bottom" constant="-20" id="7R5-Ii-Jiu"/>
+                            <constraint firstItem="6wp-9Y-UXL" firstAttribute="leading" secondItem="nHt-t7-U5f" secondAttribute="leadingMargin" constant="-24" id="7rK-oq-2yE"/>
+                            <constraint firstItem="owR-YU-oej" firstAttribute="top" secondItem="6wp-9Y-UXL" secondAttribute="bottom" constant="-44" id="BDx-gO-jgs"/>
+                            <constraint firstItem="me6-hT-Gde" firstAttribute="leading" secondItem="nHt-t7-U5f" secondAttribute="leadingMargin" constant="-20" id="LMC-kK-Ngw"/>
+                            <constraint firstItem="me6-hT-Gde" firstAttribute="centerX" secondItem="nHt-t7-U5f" secondAttribute="centerX" id="Tr3-jk-A2l"/>
+                            <constraint firstItem="6wp-9Y-UXL" firstAttribute="top" secondItem="nHt-t7-U5f" secondAttribute="topMargin" id="VY8-vV-zVz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6wp-9Y-UXL" secondAttribute="trailing" constant="-24" id="ZDj-M8-UgE"/>
+                            <constraint firstItem="owR-YU-oej" firstAttribute="top" secondItem="6wp-9Y-UXL" secondAttribute="bottom" constant="-44" id="fKe-uG-xhH"/>
+                            <constraint firstItem="6wp-9Y-UXL" firstAttribute="leading" secondItem="nHt-t7-U5f" secondAttribute="leadingMargin" constant="-24" id="jb4-0u-RFG"/>
+                            <constraint firstItem="6wp-9Y-UXL" firstAttribute="leading" secondItem="nHt-t7-U5f" secondAttribute="leadingMargin" constant="-24" id="khE-vw-Las"/>
+                            <constraint firstItem="me6-hT-Gde" firstAttribute="centerY" secondItem="nHt-t7-U5f" secondAttribute="centerY" constant="-283.5" id="ohW-Wl-NCM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6wp-9Y-UXL" secondAttribute="trailing" constant="-24" id="pTS-Pq-n28"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6wp-9Y-UXL" secondAttribute="trailing" constant="-24" id="x53-yv-Cu7"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tmJ-cr-Jar" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="244.5" y="282.5"/>
+            <point key="canvasLocation" x="892.5" y="-517.5"/>
         </scene>
     </scenes>
 </document>
