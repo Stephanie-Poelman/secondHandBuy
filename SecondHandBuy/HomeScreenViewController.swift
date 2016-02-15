@@ -17,4 +17,12 @@ class HomeScreenViewController: UIViewController {
     @IBAction func clickToMapScreen(sender: AnyObject) {
     }
     
+    @IBAction func takePicture(sender: AnyObject) {
+        
+        
+        
+    }
+    
+    
+    
 }
