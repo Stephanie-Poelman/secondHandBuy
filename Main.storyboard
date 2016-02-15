@@ -95,5 +95,52 @@
             </objects>
             <point key="canvasLocation" x="892.5" y="-517.5"/>
         </scene>
+        <!--Picture Manager-->
+        <scene sceneID="a7g-0D-h94">
+            <objects>
+                <viewController id="P5U-HW-JbB" customClass="PictureManager" customModule="SecondHandBuy" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dR2-5r-9a9"/>
+                        <viewControllerLayoutGuide type="bottom" id="bcS-sL-vXd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aPg-td-9Mx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MRX-qd-Qbo">
+                                <rect key="frame" x="-4" y="0.0" width="383" height="667"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8tl-BE-Jb9">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="k3X-B8-Kmd">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MRX-qd-Qbo" firstAttribute="top" secondItem="aPg-td-9Mx" secondAttribute="topMargin" id="2Qr-W5-4h2"/>
+                            <constraint firstItem="bcS-sL-vXd" firstAttribute="top" secondItem="MRX-qd-Qbo" secondAttribute="bottom" id="Iv7-wY-Xz8"/>
+                            <constraint firstItem="MRX-qd-Qbo" firstAttribute="leading" secondItem="aPg-td-9Mx" secondAttribute="leadingMargin" constant="-20" id="N75-v5-32b"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MRX-qd-Qbo" secondAttribute="trailing" constant="-20" id="RXJ-Tq-WIA"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NRc-YK-zsQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1396.5" y="-517.5"/>
+        </scene>
     </scenes>
 </document>
