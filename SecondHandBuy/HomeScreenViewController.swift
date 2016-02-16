@@ -11,11 +11,9 @@ import UIKit
 
 class HomeScreenViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
-    
-    
-    
 // MARK: Actions
     
+        // To take picture
         @IBAction func takePicture(sender: AnyObject) {
             
         let imagePicker = UIImagePickerController()
@@ -28,19 +26,14 @@ class HomeScreenViewController: UIViewController, UITextFieldDelegate, UINavigat
         else {
             imagePicker.sourceType = .PhotoLibrary
         }
-        
             imagePicker.delegate = self
             
             //Place image picker on the screen
             presentViewController(imagePicker, animated: true, completion: nil)
     }
     
-
-        
+    // To show map
     @IBAction func clickToMapScreen(sender: AnyObject) {
         
     }
-    
-    
-    
 }

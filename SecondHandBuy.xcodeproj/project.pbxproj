@@ -15,6 +15,8 @@
 		5E00175E1C72134C006104E1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E00175D1C72134C006104E1 /* MapKit.framework */; };
 		5E0017601C721A10006104E1 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E00175F1C721A10006104E1 /* HomeScreenViewController.swift */; };
 		5E445B4D1C7225EE00A37E51 /* PictureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E445B4C1C7225EE00A37E51 /* PictureManager.swift */; };
+		5E6852701C731366008A8FE1 /* PhotoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E68526F1C731366008A8FE1 /* PhotoStore.swift */; };
+		5E6852721C731F70008A8FE1 /* AdvertisementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6852711C731F70008A8FE1 /* AdvertisementViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		5E00175D1C72134C006104E1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5E00175F1C721A10006104E1 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		5E445B4C1C7225EE00A37E51 /* PictureManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureManager.swift; sourceTree = "<group>"; };
+		5E68526F1C731366008A8FE1 /* PhotoStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoStore.swift; sourceTree = "<group>"; };
+		5E6852711C731F70008A8FE1 /* AdvertisementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +69,9 @@
 				291AEE871C71EDE600DA8DBA /* AppDelegate.swift */,
 				2993E4311C7216D60081AC07 /* Main.storyboard */,
 				5E00175F1C721A10006104E1 /* HomeScreenViewController.swift */,
+				5E68526F1C731366008A8FE1 /* PhotoStore.swift */,
 				291AEE891C71EDE600DA8DBA /* MapViewController.swift */,
+				5E6852711C731F70008A8FE1 /* AdvertisementViewController.swift */,
 				5E445B4C1C7225EE00A37E51 /* PictureManager.swift */,
 				291AEE8E1C71EDE600DA8DBA /* Assets.xcassets */,
 				291AEE901C71EDE600DA8DBA /* LaunchScreen.storyboard */,
@@ -106,6 +112,7 @@
 				TargetAttributes = {
 					291AEE831C71EDE600DA8DBA = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = LABE395DZY;
 					};
 				};
 			};
@@ -145,8 +152,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E6852701C731366008A8FE1 /* PhotoStore.swift in Sources */,
 				291AEE8A1C71EDE600DA8DBA /* MapViewController.swift in Sources */,
 				291AEE881C71EDE600DA8DBA /* AppDelegate.swift in Sources */,
+				5E6852721C731F70008A8FE1 /* AdvertisementViewController.swift in Sources */,
 				5E445B4D1C7225EE00A37E51 /* PictureManager.swift in Sources */,
 				5E0017601C721A10006104E1 /* HomeScreenViewController.swift in Sources */,
 			);
@@ -251,10 +260,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SecondHandBuy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Kithin-en-Stephanie.SecondHandBuy";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -262,10 +274,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SecondHandBuy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Kithin-en-Stephanie.SecondHandBuy";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
