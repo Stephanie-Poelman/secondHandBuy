@@ -99,6 +99,10 @@
                     </view>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="MapView" destination="6wp-9Y-UXL" id="4os-GF-jqb"/>
+                        <outlet property="mapView" destination="6wp-9Y-UXL" id="iq3-KZ-qcp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tmJ-cr-Jar" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
