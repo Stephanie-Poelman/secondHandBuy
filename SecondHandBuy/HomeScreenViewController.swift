@@ -36,4 +36,48 @@ class HomeScreenViewController: UIViewController, UITextFieldDelegate, UINavigat
     @IBAction func clickToMapScreen(sender: AnyObject) {
         
     }
+    
+    // voorbeeld Code van stackoverflow om foto naar andere viewcontroller te verplaatsen:
+    
+    @IBAction func cameraButton(sender: AnyObject) {
+        
+        addNewPicture()
+        
+    }
+    
+    func addNewPicture() {
+        
+        let picker = UIImagePickerController()
+        picker.allowsEditing = true
+        picker.delegate = self
+        
+        presentViewController(picker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+
+        postingImage.image = image
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
+    }
+    
+    @IBAction func postButton(sender: AnyObject) {
+        
+        performSegueWithIdentifier("toBrowsePage", sender: nil)
+        
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "toBrowsePage" {
+            
+            
+            var itemToAdd = segue.destinationViewController as! ListPage
+            
+            itemToAdd.postingImage.image = browsingImage.image
+            
+        }
+    }
 }
+
