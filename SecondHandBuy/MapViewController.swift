@@ -16,12 +16,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
     @IBOutlet var mapView: MKMapView!
     
-//    let annotation = MKPointAnnotation()
-//    annotation.title = "Times Square"
-//    annotation.coordinate = placemark.location.coordinate
-//    
-//    mapView.showAnnotations([annotation], animated: true)
-//    mapView.selectAnnotation(annotation, animated: true)
     
 // MARK: Functions
     
@@ -75,5 +69,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 }
+
+let geoCoder = CLGeocoder()
+geoCoder.geocodeAddressString("524 Ct St, Brooklyn, NY 11231", completionHandler: { placemarks, error in
+        
+        // Process the placemark
+        
+        })
 
