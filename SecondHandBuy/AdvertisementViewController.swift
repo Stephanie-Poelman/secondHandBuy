@@ -23,9 +23,11 @@ class AdvertisementViewController: UIViewController,  UITextFieldDelegate {
     // Dismiss keyboard
     @IBAction func backgroundTapped(sender: AnyObject) {
         view.endEditing(true)
+    }
     
     // Save advertisement
     @IBAction func save(sender: AnyObject) {
+        
             // Create a new Item and add it to the store
     let newAdvertisement = Advertisement.createItem()
         
@@ -35,8 +37,9 @@ class AdvertisementViewController: UIViewController,  UITextFieldDelegate {
                 
                 // Insert this new row into the table.
                 tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-            }
+        
         }
+        
     }
     
     func sendToDatabase(item: Advertisement) {
@@ -58,7 +61,7 @@ class AdvertisementViewController: UIViewController,  UITextFieldDelegate {
         sendToDatabase(Advertisement)
     }
     
-    }
+    
     
 // Functions
     
@@ -74,6 +77,7 @@ class AdvertisementViewController: UIViewController,  UITextFieldDelegate {
         // Put image from action "Take Picture" in imageView
         imageView.image = image
     }
+}
 
 
 
