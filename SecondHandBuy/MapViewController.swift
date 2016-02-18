@@ -34,6 +34,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         // 1
         let location = CLLocationCoordinate2D(latitude: 52.373305, longitude:
             4.892629)
+        
+        let annotation = MKPointAnnotation
+        annotation.title = "
         // 2
         let span = MKCoordinateSpanMake(0.05, 0.05)
         let region = MKCoordinateRegion(center: location, span: span)
@@ -72,10 +75,5 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
 }
 
-let geoCoder = CLGeocoder()
-geoCoder.geocodeAddressString("524 Ct St, Brooklyn, NY 11231", completionHandler: { placemarks, error in
-        
-        // Process the placemark
-        
-        })
+
 
