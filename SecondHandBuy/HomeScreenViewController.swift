@@ -9,75 +9,73 @@
 import UIKit
 
 
-class HomeScreenViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-    
+class HomeScreenViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+
+
 // MARK: Actions
     
-        // To take picture
-        @IBAction func takePicture(sender: AnyObject) {
-            
+    // Take picture
+    @IBAction func takePicture(sender: AnyObject) {
+    
+        
         let imagePicker = UIImagePickerController()
         
-        // If the device has a camera, take a picture; otherwise,
-        // just pick from photo library
+        // If the device has a camera, take a picture; otherwise, just pick from photo library
         if UIImagePickerController.isSourceTypeAvailable(.Camera) {
             imagePicker.sourceType = .Camera
-        }
-        else {
-            imagePicker.sourceType = .PhotoLibrary
-        }
-            imagePicker.delegate = self
             
-            //Place image picker on the screen
-            presentViewController(imagePicker, animated: true, completion: nil)
+        } else {
+            
+        imagePicker.sourceType = .PhotoLibrary
+            
+        }
+            
+        imagePicker.delegate = self
+            
+        //Place image picker on the screen
+        presentViewController(imagePicker, animated: true, completion: nil)
     }
     
-    // To show map
-    @IBAction func clickToMapScreen(sender: AnyObject) {
-        
+    
+    // Show map
+    @IBAction func showMap(sender: AnyObject) {
     }
     
-    // voorbeeld Code van stackoverflow om foto naar andere viewcontroller te verplaatsen:
-    
-    @IBAction func cameraButton(sender: AnyObject) {
-        
-        addNewPicture()
-        
-    }
-    
-    func addNewPicture() {
-        
-        let picker = UIImagePickerController()
-        picker.allowsEditing = true
-        picker.delegate = self
-        
-        presentViewController(picker, animated: true, completion: nil)
-    }
-    
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
 
-        postingImage.image = image
-        self.dismissViewControllerAnimated(true, completion: nil)
+// MARK: Functions
+    
+    
+        // Select taken picture
+        func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+            
+            // Get picked picture from info dictionary
+            let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         
+            // Dismiss imagePickerController
+            dismissViewControllerAnimated(true, completion: nil)
+            
+            // Call destination viewController
+            let destinationViewController = self.storyboard?.instantiateViewControllerWithIdentifier("AdvertisementViewController") as! AdvertisementViewController
+            
+            // Put image in imageView of destinationViewController
+            destinationViewController.image = image
+            
+            // Show destinationViewController
+            self.presentViewController(destinationViewController, animated: true, completion: nil)
     }
     
-    @IBAction func postButton(sender: AnyObject) {
-        
-        performSegueWithIdentifier("toBrowsePage", sender: nil)
-        
-        
-    }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        if segue.identifier == "toBrowsePage" {
-            
-            
-            var itemToAdd = segue.destinationViewController as! ListPage
-            
-            itemToAdd.postingImage.image = browsingImage.image
-            
-        }
-    }
 }
-
+    
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

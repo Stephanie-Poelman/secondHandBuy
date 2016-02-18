@@ -6,4 +6,12 @@
 //  Copyright © 2016 Kithin en Stephanie. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+
+class PhotoStore {
+    
+    
+    
+    
+}

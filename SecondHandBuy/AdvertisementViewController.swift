@@ -10,7 +10,11 @@ import UIKit
 
 
 
-class AdvertisementViewController: HomeScreenViewController {
+class AdvertisementViewController: UIViewController,  UITextFieldDelegate {
+    
+// MARK: Properties
+    
+    var image: UIImage?
     
 // MARK: Outlets and Actions
     
@@ -23,6 +27,16 @@ class AdvertisementViewController: HomeScreenViewController {
         view.endEditing(true)
     }
     
+    // Save advertisement
+    @IBAction func save(sender: AnyObject) {
+        
+        
+        
+        
+        
+        
+    }
+    
 // Functions
     
     // Show keyboard when clicking on textField
@@ -31,17 +45,12 @@ class AdvertisementViewController: HomeScreenViewController {
         return true
     }
     
-    // Put picture in AdvertisementView
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: AnyObject]) {
     
-        // Get picked image from info dictionary
-        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-    
-        // Put that image on the screen in imageView
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Put image from action "Take Picture" in imageView
         imageView.image = image
-    
-        // Take image picker off the screen, you must call this dismiss method
-        dismissViewControllerAnimated(true, completion: nil)
     }
 }
 
