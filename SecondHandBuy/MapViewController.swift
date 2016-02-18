@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Parse
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
@@ -35,8 +36,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let location = CLLocationCoordinate2D(latitude: 52.373305, longitude:
             4.892629)
         
-        let annotation = MKPointAnnotation
-        annotation.title = "
         // 2
         let span = MKCoordinateSpanMake(0.05, 0.05)
         let region = MKCoordinateRegion(center: location, span: span)
@@ -59,6 +58,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         locationManager.startUpdatingHeading()
         
         mapView.showsUserLocation = true
+        
+//        let point = PFGeoPoint(location: LocationManager?))
     }
     
     func locationManager(manager: CLLocationManager, didUpdateToLocation
