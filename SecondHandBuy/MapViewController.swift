@@ -58,8 +58,23 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         locationManager.startUpdatingHeading()
         
         mapView.showsUserLocation = true
+//        
+//        //User's location
+//        let userGeopoint = userObject["LocationUser"] as PFGeoPoint
+//        // Create a query for places
+//        var query = PFQuery(className:"ProductStore")
         
-//        let point = PFGeoPoint(location: LocationManager?))
+        
+        let point = PFGeoPoint(latitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!)
+        
+     //   ProductStore["locationManager"] = point
+        
+        PFGeoPoint.geoPointForCurrentLocationInBackground {
+            (geoPoint: PFGeoPoint?, error: NSError?) -> Void in
+            if error == nil {
+                // do something with the new Geopoint
+            }
+        }
     }
     
     func locationManager(manager: CLLocationManager, didUpdateToLocation
@@ -73,6 +88,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
     
 }
 
