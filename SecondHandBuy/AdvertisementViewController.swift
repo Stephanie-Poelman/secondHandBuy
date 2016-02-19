@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Parse
+
 
 class AdvertisementViewController: UIViewController,  UITextFieldDelegate {
     
@@ -14,11 +16,17 @@ class AdvertisementViewController: UIViewController,  UITextFieldDelegate {
     
     var image: UIImage?
     
+    
 // MARK: Outlets and Actions
     
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var locationLabel: UILabel!
     @IBOutlet var imageView: UIImageView!
+    
+    @IBOutlet var nameField: UITextField!
+    @IBOutlet var productField: UITextField!
+    @IBOutlet var conditionField: UITextField!
+    @IBOutlet var priceField: UITextField!
     
     // Dismiss keyboard
     @IBAction func backgroundTapped(sender: AnyObject) {
@@ -27,40 +35,60 @@ class AdvertisementViewController: UIViewController,  UITextFieldDelegate {
     
     // Save advertisement
     @IBAction func save(sender: AnyObject) {
+       
+    // Save objects
+    let advertisement = PFObject(className: "ProductStore")
+        advertisement["name"] = nameField.text
+        advertisement["product"] = productField.text
+        advertisement["condition"] = conditionField.text
+        advertisement["price"] = priceField.text
         
-            // Create a new Item and add it to the store
-    let newAdvertisement = Advertisement.createItem()
+        // Convert picture from UIImage to PFImage
+        let imageData = UIImageJPEGRepresentation(imageView.image!, 0.5)
+        let parsePhoto = PFFile(data: imageData!)
         
-            // Figure out where that item is in the array
-    if let index = itemStore.allItems.indexOf(newItem) {
-        let indexPath = NSIndexPath(forRow: index, inSection: 0)
+        advertisement["picture"] = parsePhoto!
+        
+        advertisement.saveInBackgroundWithBlock { (successful, error) -> Void in
+            if (successful) {
+               print("Entry saved successfully")
                 
-                // Insert this new row into the table.
-                tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-        
-        }
-        
-    }
-    
-    func sendToDatabase(item: Advertisement) {
-        let advertisementObjects = PFObject(className: "ProductStore")
-        advertisementObjects.setObject(item.name, forKey: "Name")
-        advertisementObjects.setObject(item.product, forKey: "product")
-        advertisementObjects.setObject(item.condition!, forKey: "condition")
-        advertisementObjects.setObject(item.price, forKey: "price")
-        advertisementObjects.setObject(item.dateCreated, forKey: "dateCreated")
-        advertisementObjects.setObject(item.location, forKey: "location")
-        advertisementObjects.saveInBackgroundWithBlock { (succeeded, error) -> Void in
-            if succeeded {
-                print ("Object Uploaded")
-            } else {
-                print ("Error: \(error) \(error!.userInfo)")
+                // Notify saving was successful
+                
+                // Design Alert
+                let title = "Alert"
+                let message = "Saving was successful. You will go back to Buy Second Hand."
+                let okeText = "Ok"
+                
+                // Make Alert
+                let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+                let okayButton = UIAlertAction(title: okeText, style: UIAlertActionStyle.Default, handler: {(okayButton) -> Void in
+                self.dismissViewControllerAnimated(true, completion: nil)})
+                
+                alert.addAction(okayButton)
+                
+               self.presentViewController(alert, animated: true, completion: nil)
+            }
+                
+            else {
+                print("save was not successful")
+                
+                // Notify saving was not successful
+                
+                // Design Alert
+                let title = "Alert"
+                let message = "Saving was not successful."
+                let okeText = "Ok"
+                
+                // Make Alert
+                let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+                let okayButton = UIAlertAction(title: okeText, style: UIAlertActionStyle.Cancel, handler: nil)
+                alert.addAction(okayButton)
+                
+                self.presentViewController(alert, animated: true, completion: nil)
             }
         }
-        
-        sendToDatabase(Advertisement)
     }
-    
     
     
 // Functions
@@ -77,6 +105,15 @@ class AdvertisementViewController: UIViewController,  UITextFieldDelegate {
         // Put image from action "Take Picture" in imageView
         imageView.image = image
     }
+    
+    
+                
+        
+        
+        
+    }
+    
+    
 }
 
 

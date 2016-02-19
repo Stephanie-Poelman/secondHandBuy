@@ -9,8 +9,53 @@
 
 import UIKit
 
-class ItemsViewController: UITableViewController {
+
+
+
+class StoreAdvertisement: UITableViewController {
     
+    
+    var productArray = [String]()
+    
+    
+    // Retrieve objects
+    
+    func retrieveObjects() {
+        
+        // Create a new Query
+        var query = PFQuery(className: "ProductStore")
+        
+        // Call find Object in Background
+        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
+            
+            // Clear the productArray
+            self.productArray = [String]()
+            
+            // Loop through the Objects Array
+            for productStoreObjects in objects {
+                
+                // Retrieve the product column value of each PFObject
+                let productStoreProduct: String? = (productStoreObjects as! PFObject)["product"] as? String
+                
+                // Add it into productArray
+                if productStoreProduct != nil {
+                    self.productArray.append(productStoreProduct!)
+                }
+                
+            }
+            
+            // Reload store Advertisement
+            self.
+            
+            
+        }
+    }
+    
+
+    
+    
+    
+  /*
     var itemStore: ItemStore!
     var imageStore: ImageStore!
     
@@ -52,4 +97,6 @@ class ItemsViewController: UITableViewController {
         }
     }
 }
-  
+*/
+
+}
