@@ -29,7 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // [Optional] Track statistics around application opens.
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
-     
         
         // Override point for customization after application launch.
         return true
