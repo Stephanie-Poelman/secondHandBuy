@@ -40,6 +40,11 @@ class AdvertisementViewController: UIViewController,  UITextFieldDelegate, CLLoc
     
     // Save advertisement
     @IBAction func save(sender: AnyObject) {
+        
+    // Create a PFGeoPoint
+    let point = PFGeoPoint(latitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!)
+        
+//    advertisement["location"] = point
        
     // Save objects
     let advertisement = PFObject(className: "ProductStore")
@@ -47,7 +52,8 @@ class AdvertisementViewController: UIViewController,  UITextFieldDelegate, CLLoc
         advertisement["product"] = productField.text
         advertisement["condition"] = conditionField.text
         advertisement["price"] = priceField.text
-       
+        advertisement["location"] = point
+        
         // Convert picture from UIImage to PFImage
         let imageData = UIImageJPEGRepresentation(imageView.image!, 0.5)
         let parsePhoto = PFFile(data: imageData!)
@@ -110,11 +116,16 @@ class AdvertisementViewController: UIViewController,  UITextFieldDelegate, CLLoc
         // Put image from action "Take Picture" in imageView
         imageView.image = image
         
-        let advertisement = PFObject(className: "ProductStore")
         
-        //Get the user's current location
-        advertisement["location"] = PFGeoPoint(latitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!)
-        advertisement.saveInBackground()
+//        //Get the user's current location
+//        advertisement["location"] = PFGeoPoint(latitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!)
+//        advertisement.saveInBackground()
+//        
+//        //Query contacts based on location 
+//        let query = PFQuery(className: "ProductStore")
+//        query.whereKey("location", nearGeoPoint: PFGeoPoint(latitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!))
+//        query.findObjectsInBackgroundWithBlock(<#T##block: PFQueryArrayResultBlock?##PFQueryArrayResultBlock?##([PFObject]?, NSError?) -> Void#>)
+        
         
         
 //        
