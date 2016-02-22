@@ -8,13 +8,18 @@
 
 import UIKit
 import Parse
+import CoreLocation
 
 
-class AdvertisementViewController: UIViewController,  UITextFieldDelegate {
+class AdvertisementViewController: UIViewController,  UITextFieldDelegate, CLLocationManagerDelegate {
     
 // MARK: Properties
     
     var image: UIImage?
+    
+//Show current location user on map
+    
+    var locationManager: CLLocationManager!
     
     
 // MARK: Outlets and Actions
@@ -42,7 +47,7 @@ class AdvertisementViewController: UIViewController,  UITextFieldDelegate {
         advertisement["product"] = productField.text
         advertisement["condition"] = conditionField.text
         advertisement["price"] = priceField.text
-        
+       
         // Convert picture from UIImage to PFImage
         let imageData = UIImageJPEGRepresentation(imageView.image!, 0.5)
         let parsePhoto = PFFile(data: imageData!)
@@ -104,9 +109,29 @@ class AdvertisementViewController: UIViewController,  UITextFieldDelegate {
         
         // Put image from action "Take Picture" in imageView
         imageView.image = image
+        
+        let advertisement = PFObject(className: "ProductStore")
+        
+        //Get the user's current location
+        advertisement["location"] = PFGeoPoint(latitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!)
+        advertisement.saveInBackground()
+        
+        
+//        
+//        // Put location of user in GeoPoint
+//         let location = PFGeoPoint(latitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!)
+//        
+//        
+//        let userLocation = PFObject(className: "ProductStore")
+//        
+//         ProductStore["locationManager"] = location
+        
     }
+
 }
 
+
+    
 
 
 

@@ -110,8 +110,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         //    let point = PFGeoPoint(latitude:52.373305, longitude:4.892629)
         
         
-        //Get the user's current location
-        
+//        //Get the user's current location
+//        
 //        PFGeoPoint.geoPointForCurrentLocationInBackground {
 //            (geoPoint: PFGeoPoint?, error: NSError?) -> Void in
 //            if error == nil {
