@@ -41,8 +41,12 @@ class AdvertisementViewController: UIViewController,  UITextFieldDelegate, CLLoc
     // Save advertisement
     @IBAction func save(sender: AnyObject) {
         
+        let lat = locationManager.location?.coordinate.latitude
+        let long = locationManager.location?.coordinate.longitude
+        
     // Create a PFGeoPoint
-    let point = PFGeoPoint(latitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!)
+    let point = PFGeoPoint(latitude: lat!, longitude: long!)
+        
         
 //    advertisement["location"] = point
        
@@ -113,8 +117,15 @@ class AdvertisementViewController: UIViewController,  UITextFieldDelegate, CLLoc
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        locationManager = CLLocationManager()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.delegate = self
+        
         // Put image from action "Take Picture" in imageView
         imageView.image = image
+        
+        locationManager.startUpdatingLocation()
+
         
         
 //        //Get the user's current location
