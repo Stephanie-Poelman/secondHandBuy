@@ -14,89 +14,136 @@ import UIKit
 
 class StoreAdvertisement: UITableViewController {
     
-    
+// MARK: Properties
     var productArray = [String]()
+    var nameArray = [String]()
+    var pictureArray = [PFFile]()
+    var conditionArray = [String]()
+    var priceArray = [String]()
+    var photoArray = [UIImage]()
+  
+   
+    //    pictureArray?.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
+    //    if error == nil {
+
     
+//    let photo = UIImage(data: imageData!)
+//    self.photoArray.append(photo!) } })
     
-    // Retrieve objects
-    
-    func retrieveObjects() {
-        
-        // Create a new Query
-        var query = PFQuery(className: "ProductStore")
-        
-        // Call find Object in Background
-        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
-            
-            // Clear the productArray
-            self.productArray = [String]()
-            
-            // Loop through the Objects Array
-            for productStoreObjects in objects {
-                
-                // Retrieve the product column value of each PFObject
-                let productStoreProduct: String? = (productStoreObjects as! PFObject)["product"] as? String
-                
-                // Add it into productArray
-                if productStoreProduct != nil {
-                    self.productArray.append(productStoreProduct!)
-                }
-                
-            }
-            
-            // Reload store Advertisement
-            self.
-            
-            
-        }
-    }
-    
+    // Add it to pictureArray
+    //                pictureName?.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
+    //                    if error == nil {
+    //
+    //                    let photo = UIImage(data: imageData!)
+    //                        self.pictureArray.append(photo!)
+    //                    }
+    //                })
 
     
     
+// MARK: Outlets
+    @IBOutlet var AdvertisementTableView: UITableView!
     
-  /*
-    var itemStore: ItemStore!
-    var imageStore: ImageStore!
     
-    //MARK: - Initializers
+// MARK: Functions
+
+
+// Retrieve objects from Parse
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    func retrieveAdvertisement() {
         
-        navigationItem.leftBarButtonItem = editButtonItem()
+        // Create a new Query
+        let query = PFQuery(className: "ProductStore")
+        
+        // Call find Object in Background
+        query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
+            
+            // Clear productArray
+            self.productArray = [String]()
+            self.nameArray = [String]()
+            self.pictureArray = [PFFile]()
+            
+            // Loop through objectID's
+            for productStoreObject in objects! {
+                
+                // Retrieve the value of product of each objectID's
+                let productName: String? = (productStoreObject as PFObject)["product"] as? String
+                let nameName: String? = (productStoreObject as PFObject)["name"] as? String
+                let pictureName: PFFile? = (productStoreObject as PFObject)["picture"] as? PFFile
+                
+                // Add it to productArray
+                if productName != nil {
+                    self.productArray.append(productName!)
+                }
+                
+                // Add it to nameArray
+                if nameName != nil {
+                    self.nameArray.append(nameName!)
+                }
+                
+                
+                // Add it to pictureArray
+//                pictureName?.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
+//                    if error == nil {
+//                        
+//                    let photo = UIImage(data: imageData!)
+//                        self.pictureArray.append(photo!)
+//               po     }
+//                })
+                
+                // Add it to pictureArray
+                if pictureName != nil {
+                    self.pictureArray.append(pictureName!)
+                }
+            }
+            
+            // reload Store Advertisement
+            self.AdvertisementTableView.reloadData()
+    }
+}
+
+    
+// Turn those retrieve objects from Parse into rows, that can display on the TableView
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return productArray.count
+        
     }
     
-    //MARK: - View life cycle
+// Create a data source for the rows, so the rows know where to retrieve the data from and display it
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        // Create an instance of UITableViewCell, with default appereance
+        let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: "UITableViewCell")
+        
+        // Create an constant to save all the products
+        let product = productArray[indexPath.row]
+        let name = nameArray[indexPath.row]
+        let picture = photoArray[indexPath.row]
+        
+        
+
+        // Create a cell to put the description of product in it
+        cell.textLabel?.text = product
+        cell.detailTextLabel?.text = name
+        cell.imageView?.image = picture
+        
+        return cell
+    }
+
     
+  
+// viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 65
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+        // add products from Parse
+      self.retrieveAdvertisement()
         
-        tableView.reloadData()
-    }
-    
-    //MARK: - Actions
-    
-    @IBAction func addNewItem(sender: AnyObject) {
-        // Create a new Item and add it to the store
-        let newItem = itemStore.createItem()
-        
-        // Figure out where that item is in the array
-        if let index = itemStore.allItems.indexOf(newItem) {
-            let indexPath = NSIndexPath(forRow: index, inSection: 0)
-            
-            // Insert this new row into the table.
-            tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-        }
     }
 }
-*/
 
-}
+
+
+
+
+

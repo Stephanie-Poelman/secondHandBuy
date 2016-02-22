@@ -19,6 +19,8 @@
 		5E445B4D1C7225EE00A37E51 /* PictureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E445B4C1C7225EE00A37E51 /* PictureManager.swift */; };
 		5E6852701C731366008A8FE1 /* PhotoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E68526F1C731366008A8FE1 /* PhotoStore.swift */; };
 		5E6852721C731F70008A8FE1 /* AdvertisementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6852711C731F70008A8FE1 /* AdvertisementViewController.swift */; };
+		5E6B4C3E1C77523F0094CD45 /* ShowAdvertisement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6B4C3D1C77523F0094CD45 /* ShowAdvertisement.swift */; };
+		5E6B4C401C7A02840094CD45 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6B4C3F1C7A02840094CD45 /* DetailViewController.swift */; };
 		5E8280F81C75BC5F00A4948A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E8280F71C75BC5F00A4948A /* AudioToolbox.framework */; };
 		5E8280FA1C75BC6B00A4948A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E8280F91C75BC6B00A4948A /* CFNetwork.framework */; };
 		5E8280FC1C75BC7700A4948A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E8280FB1C75BC7700A4948A /* CoreGraphics.framework */; };
@@ -54,6 +56,8 @@
 		5E445B4C1C7225EE00A37E51 /* PictureManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureManager.swift; sourceTree = "<group>"; };
 		5E68526F1C731366008A8FE1 /* PhotoStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoStore.swift; sourceTree = "<group>"; };
 		5E6852711C731F70008A8FE1 /* AdvertisementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementViewController.swift; sourceTree = "<group>"; };
+		5E6B4C3D1C77523F0094CD45 /* ShowAdvertisement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowAdvertisement.swift; sourceTree = "<group>"; };
+		5E6B4C3F1C7A02840094CD45 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		5E8280F71C75BC5F00A4948A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		5E8280F91C75BC6B00A4948A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		5E8280FB1C75BC7700A4948A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -148,7 +152,9 @@
 				5E68526F1C731366008A8FE1 /* PhotoStore.swift */,
 				291AEE891C71EDE600DA8DBA /* MapViewController.swift */,
 				5E6852711C731F70008A8FE1 /* AdvertisementViewController.swift */,
+				5E6B4C3F1C7A02840094CD45 /* DetailViewController.swift */,
 				2993E4331C75D2D70081AC07 /* StoreAdvertisement.swift */,
+				5E6B4C3D1C77523F0094CD45 /* ShowAdvertisement.swift */,
 				2993E4351C75D5A20081AC07 /* Advertisement.swift */,
 				5E445B4C1C7225EE00A37E51 /* PictureManager.swift */,
 				5E82810C1C75C09600A4948A /* Obj-C.m */,
@@ -233,12 +239,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E6B4C401C7A02840094CD45 /* DetailViewController.swift in Sources */,
 				5E6852701C731366008A8FE1 /* PhotoStore.swift in Sources */,
 				291AEE8A1C71EDE600DA8DBA /* MapViewController.swift in Sources */,
 				291AEE881C71EDE600DA8DBA /* AppDelegate.swift in Sources */,
 				2993E4341C75D2D70081AC07 /* StoreAdvertisement.swift in Sources */,
 				5E6852721C731F70008A8FE1 /* AdvertisementViewController.swift in Sources */,
 				5E82810D1C75C09600A4948A /* Obj-C.m in Sources */,
+				5E6B4C3E1C77523F0094CD45 /* ShowAdvertisement.swift in Sources */,
 				5E445B4D1C7225EE00A37E51 /* PictureManager.swift in Sources */,
 				5E0017601C721A10006104E1 /* HomeScreenViewController.swift in Sources */,
 				2993E4361C75D5A20081AC07 /* Advertisement.swift in Sources */,

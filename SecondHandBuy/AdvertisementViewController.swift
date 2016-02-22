@@ -105,15 +105,6 @@ class AdvertisementViewController: UIViewController,  UITextFieldDelegate {
         // Put image from action "Take Picture" in imageView
         imageView.image = image
     }
-    
-    
-                
-        
-        
-        
-    }
-    
-    
 }
 
 
