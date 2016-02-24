@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
-//import Parse
+
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
@@ -17,6 +17,36 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var locationManager: CLLocationManager!
 
     @IBOutlet var mapView: MKMapView!
+//        
+//        let title: String
+//        let product: String
+//        let condition: String
+//        let price: Double
+//        let coordinate: CLLocationCoordinate2D
+//        
+//        init(title: String, product: String, condition: String, price: Double, coordinate: CLLocationCoordinate2D) {
+//            self.title = title
+//            self.product = product
+//            self.condition = condition
+//            self.price = price
+//            self.coordinate = coordinate
+//            
+//            super.init()
+//        }
+//        
+//        var subtitle: String {
+//            return product
+    
+
+//    // Use for set location user
+//    let lat = locationManager.location?.coordinate.latitude
+//    let long = locationManager.location?.coordinate.longitude
+//    
+// //Show advertisement pin on map
+//    let advertisement = MapViewController(title: "Prada schoenen", product: "schoenen", condition: "gebruikt", price: 30.00, coordinate: CLLocationCoordinate2D(latitude: lat!, longitude: long!)
+//        
+//    mapView.addAnnotation(advertisement)
+
     
 // MARK: Functions
     
@@ -47,6 +77,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+    retrieveLocationAdvertisement()
+        
         // Do any additional setup after loading the view, typically from a nib.
         
         mapView.delegate = self
@@ -100,10 +133,61 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let region = MKCoordinateRegionMakeWithDistance(
         newLocation.coordinate, 2000, 2000)
         mapView.setRegion(region, animated: true)
-            
-        print(locationManager)
+           
     }
 
+    //1. Doe een query naar Parse, daaruit krijg je een array
+    
+    
+    
+    func retrieveLocationAdvertisement() {
+        
+        // Create a new Query
+        let query = PFQuery(className: "ProductStore")
+        
+        // Call find Object in Background
+        query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
+            
+            
+            // Loop through objectID's
+            for productStoreObject in objects! {
+            
+            print(productStoreObject)
+                
+            //retrieve the value of the location object
+            let currentLocation = productStoreObject["location"] as? PFGeoPoint
+                
+                if let currentLong = currentLocation?.longitude {
+                if let currentlat = currentLocation?.latitude {
+            
+            let location = CLLocationCoordinate2D(latitude: currentlat, longitude: currentLong)
+                
+            let annotation = MKPointAnnotation()
+//              annotation.title = 
+                annotation.coordinate = location
+            
+                self.mapView.showAnnotations([annotation], animated: true)
+                self.mapView.selectAnnotation(annotation, animated: true)
+                
+            print(currentLocation)
+                        
+                    } }
+            }
+        }
+    }
+            
+                
+                
+                
+                
+                //2. Loop door deze array
+                
+                //3. Daaruit krijg je 1 object
+                
+                //4. Haal uit dit object je geopoint, gebruik makend van de key vanuit Parse
+                
+                
+                
 
         //Save coordinates 'Dam square' in geopoint
         

@@ -46,9 +46,6 @@ class AdvertisementViewController: UIViewController,  UITextFieldDelegate, CLLoc
         
     // Create a PFGeoPoint
     let point = PFGeoPoint(latitude: lat!, longitude: long!)
-        
-        
-//    advertisement["location"] = point
        
     // Save objects
     let advertisement = PFObject(className: "ProductStore")
