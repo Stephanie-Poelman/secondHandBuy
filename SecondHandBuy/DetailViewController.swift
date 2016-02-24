@@ -43,12 +43,12 @@ class DetailViewController: UIViewController {
         photoView.file = info?.valueForKey("picture") as? PFFile
         photoView.loadInBackground()
         //date
-        productLabel.text = info?.valueForKey("product") as? String
-        conditionLabel.text = info?.valueForKey("condition") as? String
-        priceLabel.text = info?.valueForKey("price") as? String
-        sellerLabel.text = info?.valueForKey("name") as? String
-        phoneNumberLabel.text = info?.valueForKey("phoneNumber") as? String
-        eMailLabel.text = info?.valueForKey("eMail") as? String
+        productLabel.text = "  \(info?.valueForKey("product") as! String)"
+        conditionLabel.text = "  \(info?.valueForKey("condition") as! String)"
+        priceLabel.text = "  € \(info?.valueForKey("price") as! String)"
+        sellerLabel.text = "  \(info?.valueForKey("name") as! String)"
+        phoneNumberLabel.text = "  \(info?.valueForKey("phoneNumber") as! String)"
+        eMailLabel.text = "  \(info?.valueForKey("eMail") as! String)"
         
         // Show N/A if there is no information in the label
         if conditionLabel.text == nil || conditionLabel.text == "" {
@@ -63,7 +63,6 @@ class DetailViewController: UIViewController {
             eMailLabel.text = "N/A"
         }
         
-        
         // Make corners of labels round
         self.productLabel.layer.cornerRadius = 8
         self.productLabel.layer.masksToBounds = true
@@ -77,6 +76,8 @@ class DetailViewController: UIViewController {
         self.phoneNumberLabel.layer.masksToBounds = true
         self.eMailLabel.layer.cornerRadius = 8
         self.eMailLabel.layer.masksToBounds = true
+        self.dateLabel.layer.cornerRadius = 8
+        self.dateLabel.layer.masksToBounds = true
         
     }
 }
