@@ -10,20 +10,31 @@ import UIKit
 
 class DetailViewController: UIViewController {
   
-// MARK: Properties
     
-    var info: PFObject?
+// MARK: Properties
+    var info: PFObject? {
+        // Show title advertisement in navigationController
+        didSet {
+            navigationItem.title = info?.valueForKey("title") as? String
+        }
+    }
+    
+    var advertisementView: AdvertisementViewController?
     
     
 // MARK: Outlets
-  
+    @IBOutlet var photoView: PFImageView!
     @IBOutlet var productLabel: UILabel!
     @IBOutlet var conditionLabel: UILabel!
+    @IBOutlet var dateLabel: UILabel!
     @IBOutlet var priceLabel: UILabel!
     @IBOutlet var sellerLabel: UILabel!
-    @IBOutlet var imageView: PFImageView!
+    @IBOutlet var phoneNumberLabel: UILabel!
+    @IBOutlet var eMailLabel: UILabel!
     
     
+    
+  
 // MARK: Functions
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -34,19 +45,31 @@ class DetailViewController: UIViewController {
         
         // Put objects in Parse into Outlets
         
+        photoView.file = info?.valueForKey("picture") as? PFFile
+        photoView.loadInBackground()
+        //date
         productLabel.text = info?.valueForKey("product") as? String
         conditionLabel.text = info?.valueForKey("condition") as? String
         priceLabel.text = info?.valueForKey("price") as? String
         sellerLabel.text = info?.valueForKey("name") as? String
-        imageView.file = info?.valueForKey("picture") as? PFFile
-        imageView.loadInBackground()
+        phoneNumberLabel.text = info?.valueForKey("phoneNumber") as? String
+        eMailLabel.text = info?.valueForKey("eMail") as? String
         
+        self.productLabel.layer.cornerRadius = 8
+        self.productLabel.layer.masksToBounds = true
+        self.conditionLabel.layer.cornerRadius = 8
+        self.conditionLabel.layer.masksToBounds = true
+        self.priceLabel.layer.cornerRadius = 8
+        self.priceLabel.layer.masksToBounds = true
+        self.sellerLabel.layer.cornerRadius = 8
+        self.sellerLabel.layer.masksToBounds = true
+        self.phoneNumberLabel.layer.cornerRadius = 8
+        self.phoneNumberLabel.layer.masksToBounds = true
+        self.eMailLabel.layer.cornerRadius = 8
+        self.eMailLabel.layer.masksToBounds = true
+        
+
     }
-
-    
-    
-        
-
 }
 
 

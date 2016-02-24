@@ -14,7 +14,7 @@ class CustomCell: UITableViewCell {
     
     
     @IBOutlet var photoView: PFImageView!
-    @IBOutlet var productLabel: UILabel!
+    @IBOutlet var titleLabel: UILabel!
     @IBOutlet var priceLabel: UILabel!
    
     

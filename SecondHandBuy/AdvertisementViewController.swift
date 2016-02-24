@@ -14,24 +14,21 @@ import CoreLocation
 class AdvertisementViewController: UIViewController,  UITextFieldDelegate, CLLocationManagerDelegate {
     
 // MARK: Properties
-    
     var image: UIImage?
     
 //Show current location user on map
-    
     var locationManager: CLLocationManager!
     
     
 // MARK: Outlets and Actions
-    
-    @IBOutlet var dateLabel: UILabel!
-    @IBOutlet var locationLabel: UILabel!
-    @IBOutlet var imageView: UIImageView!
-    
-    @IBOutlet var nameField: UITextField!
+    @IBOutlet var titleField: UITextField!
     @IBOutlet var productField: UITextField!
     @IBOutlet var conditionField: UITextField!
     @IBOutlet var priceField: UITextField!
+    @IBOutlet var nameField: UITextField!
+    @IBOutlet var phoneNumberField: UITextField!
+    @IBOutlet var EmailField: UITextField!
+    @IBOutlet var imageView: UIImageView!
     
     // Dismiss keyboard
     @IBAction func backgroundTapped(sender: AnyObject) {
@@ -49,17 +46,24 @@ class AdvertisementViewController: UIViewController,  UITextFieldDelegate, CLLoc
        
     // Save objects
     let advertisement = PFObject(className: "ProductStore")
-        advertisement["name"] = nameField.text
+        advertisement["title"] = titleField.text
         advertisement["product"] = productField.text
         advertisement["condition"] = conditionField.text
         advertisement["price"] = priceField.text
-        advertisement["location"] = point
+        advertisement["name"] = nameField.text
+        advertisement["phoneNumber"] = phoneNumberField.text
+        advertisement["eMail"] = EmailField.text
         
         // Convert picture from UIImage to PFImage
         let imageData = UIImageJPEGRepresentation(imageView.image!, 0.5)
         let parsePhoto = PFFile(data: imageData!)
         
         advertisement["picture"] = parsePhoto!
+        
+       advertisement["location"] = point
+
+        
+    // Show message advertisement saved successfully or not
         
         advertisement.saveInBackgroundWithBlock { (successful, error) -> Void in
             if (successful) {
@@ -119,32 +123,9 @@ class AdvertisementViewController: UIViewController,  UITextFieldDelegate, CLLoc
         locationManager.delegate = self
         
         // Put image from action "Take Picture" in imageView
-        imageView.image = image
+        imageView.image = image!
         
         locationManager.startUpdatingLocation()
-
-        
-        
-//        //Get the user's current location
-//        advertisement["location"] = PFGeoPoint(latitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!)
-//        advertisement.saveInBackground()
-//        
-//        //Query contacts based on location 
-//        let query = PFQuery(className: "ProductStore")
-//        query.whereKey("location", nearGeoPoint: PFGeoPoint(latitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!))
-//        query.findObjectsInBackgroundWithBlock(<#T##block: PFQueryArrayResultBlock?##PFQueryArrayResultBlock?##([PFObject]?, NSError?) -> Void#>)
-        
-        
-        
-//        
-//        // Put location of user in GeoPoint
-//         let location = PFGeoPoint(latitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!)
-//        
-//        
-//        let userLocation = PFObject(className: "ProductStore")
-//        
-//         ProductStore["locationManager"] = location
-        
     }
 
 }

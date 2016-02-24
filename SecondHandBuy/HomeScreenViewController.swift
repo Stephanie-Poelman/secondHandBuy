@@ -18,7 +18,6 @@ class HomeScreenViewController: UIViewController, UINavigationControllerDelegate
     @IBAction func showAdvertisement(sender: AnyObject) {
     }
     
-    
     // Take picture
     @IBAction func takePicture(sender: AnyObject) {
     
