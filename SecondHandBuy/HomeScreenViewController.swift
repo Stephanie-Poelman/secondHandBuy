@@ -14,6 +14,11 @@ class HomeScreenViewController: UIViewController, UINavigationControllerDelegate
 
 // MARK: Actions
     
+    // Show advertisement
+    @IBAction func showAdvertisement(sender: AnyObject) {
+    }
+    
+    
     // Take picture
     @IBAction func takePicture(sender: AnyObject) {
     
