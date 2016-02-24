@@ -19,6 +19,14 @@ class AdvertisementViewController: UIViewController,  UITextFieldDelegate, CLLoc
 //Show current location user on map
     var locationManager: CLLocationManager!
     
+// Creating the instance of "NSDateFormatter" to display it in the advertisement
+    let dateFormatter: NSDateFormatter = {
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = .MediumStyle
+        formatter.timeStyle = .NoStyle
+        
+        return formatter
+    }()
     
 // MARK: Outlets and Actions
     @IBOutlet var titleField: UITextField!

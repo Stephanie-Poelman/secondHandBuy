@@ -163,7 +163,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             let location = CLLocationCoordinate2D(latitude: currentlat, longitude: currentLong)
                 
             let annotation = MKPointAnnotation()
-//              annotation.title = 
+                annotation.title = "nieuwe schoenen"
                 annotation.coordinate = location
             
                 self.mapView.showAnnotations([annotation], animated: true)
