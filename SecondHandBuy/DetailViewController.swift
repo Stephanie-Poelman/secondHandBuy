@@ -19,8 +19,6 @@ class DetailViewController: UIViewController {
         }
     }
     
-    var advertisementView: AdvertisementViewController?
-    
     
 // MARK: Outlets
     @IBOutlet var photoView: PFImageView!
@@ -31,9 +29,7 @@ class DetailViewController: UIViewController {
     @IBOutlet var sellerLabel: UILabel!
     @IBOutlet var phoneNumberLabel: UILabel!
     @IBOutlet var eMailLabel: UILabel!
-    
-    
-    
+
   
 // MARK: Functions
     override func viewWillAppear(animated: Bool) {
@@ -44,7 +40,6 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         // Put objects in Parse into Outlets
-        
         photoView.file = info?.valueForKey("picture") as? PFFile
         photoView.loadInBackground()
         //date
@@ -55,6 +50,21 @@ class DetailViewController: UIViewController {
         phoneNumberLabel.text = info?.valueForKey("phoneNumber") as? String
         eMailLabel.text = info?.valueForKey("eMail") as? String
         
+        // Show N/A if there is no information in the label
+        if conditionLabel.text == nil || conditionLabel.text == "" {
+            conditionLabel.text = "N/A"
+        }
+        
+        if phoneNumberLabel.text == nil || phoneNumberLabel.text == "" {
+            phoneNumberLabel.text = "N/A"
+        }
+        
+        if eMailLabel.text == nil || eMailLabel.text == "" {
+            eMailLabel.text = "N/A"
+        }
+        
+        
+        // Make corners of labels round
         self.productLabel.layer.cornerRadius = 8
         self.productLabel.layer.masksToBounds = true
         self.conditionLabel.layer.cornerRadius = 8
@@ -68,7 +78,6 @@ class DetailViewController: UIViewController {
         self.eMailLabel.layer.cornerRadius = 8
         self.eMailLabel.layer.masksToBounds = true
         
-
     }
 }
 
