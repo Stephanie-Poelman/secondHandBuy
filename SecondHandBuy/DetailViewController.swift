@@ -9,9 +9,11 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-    
+  
 // MARK: Properties
-    var detail: StoreAdvertisement!
+    
+    var info: PFObject?
+    
     
 // MARK: Outlets
   
@@ -19,15 +21,38 @@ class DetailViewController: UIViewController {
     @IBOutlet var conditionLabel: UILabel!
     @IBOutlet var priceLabel: UILabel!
     @IBOutlet var sellerLabel: UILabel!
-    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var imageView: PFImageView!
+    
     
 // MARK: Functions
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-//        productLabel.text = detail.productArray
-
-        
-            }
+    }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Put objects in Parse into Outlets
+        
+        productLabel.text = info?.valueForKey("product") as? String
+        conditionLabel.text = info?.valueForKey("condition") as? String
+        priceLabel.text = info?.valueForKey("price") as? String
+        sellerLabel.text = info?.valueForKey("name") as? String
+        imageView.file = info?.valueForKey("picture") as? PFFile
+        imageView.loadInBackground()
+        
+    }
+
+    
+    
+        
+
 }
+
+
+
+
+
+
+
+
