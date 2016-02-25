@@ -13,6 +13,7 @@ import CoreLocation
 
 class AdvertisementViewController: UIViewController,  UITextFieldDelegate, CLLocationManagerDelegate {
     
+    
 // MARK: Properties
     var image: UIImage?
     
@@ -37,7 +38,6 @@ class AdvertisementViewController: UIViewController,  UITextFieldDelegate, CLLoc
         return dateFormatter.stringFromDate(NSDate())
     }
 
-    
     
 // MARK: Outlets and Actions
     @IBOutlet var titleField: UITextField!
