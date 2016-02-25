@@ -20,6 +20,8 @@ class AdvertisementViewController: UIViewController,  UITextFieldDelegate, CLLoc
     var locationManager: CLLocationManager!
     
 // Creating the instance of "NSDateFormatter" to display it in the advertisement
+    
+    // Retrieve the data to show the current date
     let dateFormatter: NSDateFormatter = {
         let formatter = NSDateFormatter()
         formatter.dateStyle = .MediumStyle
@@ -27,6 +29,15 @@ class AdvertisementViewController: UIViewController,  UITextFieldDelegate, CLLoc
         
         return formatter
     }()
+    
+    // Design how to present the current date
+    var shortDate: String {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        return dateFormatter.stringFromDate(NSDate())
+    }
+
+    
     
 // MARK: Outlets and Actions
     @IBOutlet var titleField: UITextField!
@@ -36,6 +47,7 @@ class AdvertisementViewController: UIViewController,  UITextFieldDelegate, CLLoc
     @IBOutlet var nameField: UITextField!
     @IBOutlet var phoneNumberField: UITextField!
     @IBOutlet var EmailField: UITextField!
+    @IBOutlet var dateLabel: UILabel!
     @IBOutlet var imageView: UIImageView!
     
     // Dismiss keyboard
@@ -54,13 +66,14 @@ class AdvertisementViewController: UIViewController,  UITextFieldDelegate, CLLoc
        
     // Save objects
     let advertisement = PFObject(className: "ProductStore")
-        advertisement["title"] = titleField.text
+        advertisement["titleAdvertisement"] = titleField.text
         advertisement["product"] = productField.text
         advertisement["condition"] = conditionField.text
         advertisement["price"] = priceField.text
         advertisement["name"] = nameField.text
         advertisement["phoneNumber"] = phoneNumberField.text
         advertisement["eMail"] = EmailField.text
+        advertisement["date"] = dateLabel.text
         
         // Convert picture from UIImage to PFImage
         let imageData = UIImageJPEGRepresentation(imageView.image!, 0.5)
@@ -68,7 +81,7 @@ class AdvertisementViewController: UIViewController,  UITextFieldDelegate, CLLoc
         
         advertisement["picture"] = parsePhoto!
         
-       advertisement["location"] = point
+        advertisement["location"] = point
 
         
     // Show message advertisement saved successfully or not
@@ -134,6 +147,12 @@ class AdvertisementViewController: UIViewController,  UITextFieldDelegate, CLLoc
         imageView.image = image!
         
         locationManager.startUpdatingLocation()
+        
+        
+        // Provide the dateLabel the current date
+        let currentDate = NSDate()
+        dateLabel.text = dateFormatter.stringFromDate(currentDate)
+        
     }
 
 }
