@@ -56,7 +56,7 @@ class StoreAdvertisement: UITableViewController {
         // Add info of product, price and picture to cell in row
         let data = infoArray[indexPath.row]
         
-        cell.titleLabel.text = data["title"] as? String
+        cell.titleLabel.text = data["titleAdvertisement"] as? String
         cell.priceLabel.text = "€ \(data["price"] as! String)"
         cell.photoView.file = data["picture"] as? PFFile
         cell.photoView.loadInBackground()

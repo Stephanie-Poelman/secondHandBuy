@@ -15,7 +15,7 @@ class DetailViewController: UIViewController {
     var info: PFObject? {
         // Show title advertisement in navigationController
         didSet {
-            navigationItem.title = info?.valueForKey("title") as? String
+            navigationItem.title = info?.valueForKey("titleAdvertisement") as? String
         }
     }
     
