@@ -42,7 +42,6 @@ class StoreAdvertisement: UITableViewController {
     }
 }
 
-    
 // Turn those retrieve objects from Parse into rows, that can display on the TableView
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return infoArray.count
@@ -65,7 +64,6 @@ class StoreAdvertisement: UITableViewController {
         return cell
     }
     
-    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let detailView = self.storyboard?.instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
         
@@ -76,11 +74,7 @@ class StoreAdvertisement: UITableViewController {
         
         self.navigationController?.pushViewController(detailView, animated: true)
     }
-    
-    
-    
-   
-    
+
   
 // viewDidLoad
     override func viewDidLoad() {

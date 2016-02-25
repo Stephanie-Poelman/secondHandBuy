@@ -75,10 +75,8 @@ class HomeScreenViewController: UIViewController, UINavigationControllerDelegate
     testObject["foo"] = "bar"
     testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
     print("Object has been saved.")
+        }
     }
-    }
-    
-    
 }
     
    
