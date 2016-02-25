@@ -66,13 +66,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             annotationView?.canShowCallout = true
         }
-        
-        let leftIconView = UIImageView(frame: CGRectMake(0, 0, 53, 53))
-        leftIconView.image = UIImage(named: "pradas-second hand.jpg")
-        annotationView?.leftCalloutAccessoryView = leftIconView
-        
+//
+//        let leftIconView = UIImageView(frame: CGRectMake(0, 0, 53, 53))
+//        leftIconView.image = UIImage(named: "pradas-second hand.jpg")
+//        annotationView?.leftCalloutAccessoryView = leftIconView
+//        
         return annotationView
-    
+
     }
     
     override func viewDidLoad() {
@@ -153,19 +153,29 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 
             //retrieve the value of the location object
             let currentLocation = productStoreObject["location"] as? PFGeoPoint
-                productStoreObject["title"] as? String
-                productStoreObject["price"] as? String
+            let titleAdvertisement = productStoreObject["titleAdvertisement"] as? String
+            let image = productStoreObject["picture"] as! PFFile
+//            let price = productStoreObject["price"] as? String
                 
+          //Show Image with pin
                 
+            let leftIconView = PFFile (frame: CGRectMake(0, 0, 53, 53))
+            leftIconView.image = PFFile (named: "image")
+//          annotationView?.leftCalloutAccessoryView = leftIconView
+//                
+//            return annotationView
+
+           // make constant of current location user
                 if let currentLong = currentLocation?.longitude {
                 if let currentlat = currentLocation?.latitude {
             
             let location = CLLocationCoordinate2D(latitude: currentlat, longitude: currentLong)
                 
             let annotation = MKPointAnnotation()
-//                annotation.title = title
+                    
+                    
+                annotation.title = titleAdvertisement
                 annotation.coordinate = location
-//                annotation.description = price
             
                 self.mapView.showAnnotations([annotation], animated: true)
                 self.mapView.selectAnnotation(annotation, animated: true)
