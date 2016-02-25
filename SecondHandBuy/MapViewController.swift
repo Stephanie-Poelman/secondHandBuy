@@ -17,35 +17,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var locationManager: CLLocationManager!
 
     @IBOutlet var mapView: MKMapView!
-//        
-//        let title: String
-//        let product: String
-//        let condition: String
-//        let price: Double
-//        let coordinate: CLLocationCoordinate2D
-//        
-//        init(title: String, product: String, condition: String, price: Double, coordinate: CLLocationCoordinate2D) {
-//            self.title = title
-//            self.product = product
-//            self.condition = condition
-//            self.price = price
-//            self.coordinate = coordinate
-//            
-//            super.init()
-//        }
-//        
-//        var subtitle: String {
-//            return product
-    
-
-//    // Use for set location user
-//    let lat = locationManager.location?.coordinate.latitude
-//    let long = locationManager.location?.coordinate.longitude
-//    
-// //Show advertisement pin on map
-//    let advertisement = MapViewController(title: "Prada schoenen", product: "schoenen", condition: "gebruikt", price: 30.00, coordinate: CLLocationCoordinate2D(latitude: lat!, longitude: long!)
-//        
-//    mapView.addAnnotation(advertisement)
 
     
 // MARK: Functions
@@ -53,26 +24,37 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         let identifier = "MyPin"
         
+        //Reuse the annotation if possible
+        var annotationView:MKPinAnnotationView? =
+        mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) as? MKPinAnnotationView
+        
         if annotation.isKindOfClass(MKUserLocation) {
             
             return nil
         }
+            //Show Image with pin
+            
+            var customAnnotation = annotation as! CustomAnnotation
+            
+            let image = customAnnotation.object!["picture"] as! PFFile
+            
+            let leftIconView = PFImageView (frame: CGRectMake(0, 0, 53, 53))
+            leftIconView.file = image
+            annotationView?.leftCalloutAccessoryView = leftIconView
         
-        //Reuse the annotation if possible
-        var annotationView:MKPinAnnotationView? =
-    mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) as? MKPinAnnotationView
+        leftIconView.loadInBackground()
+        
+        
+        
+//        //Reuse the annotation if possible
         
         if annotationView == nil {
             annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             annotationView?.canShowCallout = true
         }
-//
-//        let leftIconView = UIImageView(frame: CGRectMake(0, 0, 53, 53))
-//        leftIconView.image = UIImage(named: "pradas-second hand.jpg")
-//        annotationView?.leftCalloutAccessoryView = leftIconView
-//        
+        
         return annotationView
-
+    
     }
     
     override func viewDidLoad() {
@@ -118,13 +100,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         locationManager.startUpdatingHeading()
         
         mapView.showsUserLocation = true
-        
-        let annotation = MKPointAnnotation()
-        annotation.title = "Prada shoes"
-        annotation.coordinate = location
-        
-        mapView.showAnnotations([annotation], animated: true)
-        mapView.selectAnnotation(annotation, animated: true)
+    
         
     }
     
@@ -154,16 +130,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             //retrieve the value of the location object
             let currentLocation = productStoreObject["location"] as? PFGeoPoint
             let titleAdvertisement = productStoreObject["titleAdvertisement"] as? String
-            let image = productStoreObject["picture"] as! PFFile
-//            let price = productStoreObject["price"] as? String
+            
+            let price = productStoreObject["price"] as? String
                 
-          //Show Image with pin
-                
-            let leftIconView = PFFile (frame: CGRectMake(0, 0, 53, 53))
-            leftIconView.image = PFFile (named: "image")
-//          annotationView?.leftCalloutAccessoryView = leftIconView
-//                
-//            return annotationView
 
            // make constant of current location user
                 if let currentLong = currentLocation?.longitude {
@@ -171,11 +140,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             
             let location = CLLocationCoordinate2D(latitude: currentlat, longitude: currentLong)
                 
-            let annotation = MKPointAnnotation()
+            let annotation = CustomAnnotation(currentObject: productStoreObject)
                     
                     
                 annotation.title = titleAdvertisement
                 annotation.coordinate = location
+                annotation.subtitle = "€ \(price!)"
             
                 self.mapView.showAnnotations([annotation], animated: true)
                 self.mapView.selectAnnotation(annotation, animated: true)
@@ -186,67 +156,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             }
         }
     }
-            
-                
-                
-                
-                
-                //2. Loop door deze array
-                
-                //3. Daaruit krijg je 1 object
-                
-                //4. Haal uit dit object je geopoint, gebruik makend van de key vanuit Parse
-                
-                
-                
-
-        //Save coordinates 'Dam square' in geopoint
-        
-        //    let point = PFGeoPoint(latitude:52.373305, longitude:4.892629)
-        
-        
-//        //Get the user's current location
-//        
-//        PFGeoPoint.geoPointForCurrentLocationInBackground {
-//            (geoPoint: PFGeoPoint?, error: NSError?) -> Void in
-//            if error == nil {
-//                //do something with the new geoPoint
-//            }
-    
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-//    //function to determine location of user
-//    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-//        var userLocation: CLLocation = locations[0] as! CLLocation
-//        let long =
-
 }
 
 
 
-// Save location user in PFGeoPoint
-
-////        //User's location
-//       let userGeopoint = userObject["LocationUser"] as PFGeoPoint
-////        // Create a query for places
-//       var query = PFQuery(className:"AddAdvertisement")
-//
-//        let point = PFGeoPoint(latitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!)
-//
-//     //   AddAdvertisement["locationManager"] = point
-//
-//        PFGeoPoint.geoPointForCurrentLocationInBackground {
-//            (geoPoint: PFGeoPoint?, error: NSError?) -> Void in
-//            if error == nil {
-//                // do something with the new Geopoint
-//            }
-//              }
-//
 
 
 
