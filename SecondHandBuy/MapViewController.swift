@@ -135,9 +135,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView.setRegion(region, animated: true)
            
     }
-
-    //1. Doe een query naar Parse, daaruit krijg je een array
-    
     
     
     func retrieveLocationAdvertisement() {
@@ -156,6 +153,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 
             //retrieve the value of the location object
             let currentLocation = productStoreObject["location"] as? PFGeoPoint
+                productStoreObject["title"] as? String
+                productStoreObject["price"] as? String
+                
                 
                 if let currentLong = currentLocation?.longitude {
                 if let currentlat = currentLocation?.latitude {
@@ -163,8 +163,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             let location = CLLocationCoordinate2D(latitude: currentlat, longitude: currentLong)
                 
             let annotation = MKPointAnnotation()
-                annotation.title = "nieuwe schoenen"
+//                annotation.title = title
                 annotation.coordinate = location
+//                annotation.description = price
             
                 self.mapView.showAnnotations([annotation], animated: true)
                 self.mapView.selectAnnotation(annotation, animated: true)
