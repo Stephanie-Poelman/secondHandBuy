@@ -12,10 +12,15 @@ import UIKit
 class HomeScreenViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
 
-// MARK: Actions
+// MARK: Outlets and Actions
+    
+    @IBOutlet var map: UIButton!
+    @IBOutlet var add: UIButton!
+    @IBOutlet var advertisements: UIButton!
     
     // Show advertisement
     @IBAction func showAdvertisement(sender: AnyObject) {
+        
     }
     
     // Take picture
@@ -43,6 +48,7 @@ class HomeScreenViewController: UIViewController, UINavigationControllerDelegate
     
     // Show map
     @IBAction func showMap(sender: AnyObject) {
+        
     }
     
 
@@ -70,6 +76,23 @@ class HomeScreenViewController: UIViewController, UINavigationControllerDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        // Make transparant button
+//        self.map.layer.borderColor = UIColor.grayColor().CGColor
+//        self.map.layer.borderWidth = 3.5
+        self.map.layer.cornerRadius = 35
+        self.map.layer.masksToBounds = true
+//
+//        self.add.layer.borderColor = UIColor.grayColor().CGColor
+//        self.add.layer.borderWidth = 3.5
+        self.add.layer.cornerRadius = 35
+        self.add.layer.masksToBounds = true
+//
+//        self.advertisements.layer.borderColor = UIColor.grayColor().CGColor
+//        self.advertisements.layer.borderWidth = 3.5
+        self.advertisements.layer.cornerRadius = 35
+        self.advertisements.layer.masksToBounds = true
 
 //    let testObject = PFObject(className: "TestObject")
 //    testObject["foo"] = "bar"

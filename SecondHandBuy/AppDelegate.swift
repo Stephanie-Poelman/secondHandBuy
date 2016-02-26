@@ -30,6 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // [Optional] Track statistics around application opens.
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         
+        // Change navigationbar background
+        let navigationBackground = UIImage(named: "MarktKraam_Fotor")
+        UINavigationBar.appearance().setBackgroundImage(navigationBackground, forBarMetrics: .Default)
+        
         // Override point for customization after application launch.
         return true
         

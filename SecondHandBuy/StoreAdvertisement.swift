@@ -12,19 +12,19 @@ import UIKit
 
 class StoreAdvertisement: UITableViewController {
     
-// MARK: Properties
+    // MARK: Properties
     
     var infoArray = [PFObject]()
-
     
-// MARK: Outlets
+    
+    // MARK: Outlets
     @IBOutlet var AdvertisementTableView: UITableView!
     
     
-// MARK: Functions
-
-
-// Retrieve objects from Parse
+    // MARK: Functions
+    
+    
+    // Retrieve objects from Parse
     
     func retrieveAdvertisement() {
         
@@ -36,18 +36,18 @@ class StoreAdvertisement: UITableViewController {
             
             // Add objects in infoArray
             self.infoArray = objects!
-
+            
             // Reload Store Advertisement
             self.AdvertisementTableView.reloadData()
+        }
     }
-}
-
-// Turn those retrieve objects from Parse into rows, that can display on the TableView
+    
+    // Turn those retrieve objects from Parse into rows, that can display on the TableView
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return infoArray.count
     }
     
-// Create a data source for the rows, so the rows know where to retrieve the data from and display it
+    // Create a data source for the rows, so the rows know where to retrieve the data from and display it
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         // Make connection with CustomCell
@@ -74,15 +74,17 @@ class StoreAdvertisement: UITableViewController {
         
         self.navigationController?.pushViewController(detailView, animated: true)
     }
-
-  
-// viewDidLoad
+    
+    
+    // viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // add products from Parse
-      self.retrieveAdvertisement()
+        self.retrieveAdvertisement()
         
+        // Method for no space between cells
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
     }
 }
 

@@ -59,47 +59,54 @@ class DetailViewController: UIViewController {
         // Make corners of labels round and add borderlines
        
         // productLabel
-        self.productLabel.layer.cornerRadius = 8
-        self.productLabel.layer.masksToBounds = true
-        self.productLabel.layer.borderColor = UIColor.grayColor().CGColor
-        self.productLabel.layer.borderWidth = 0.5
+//        self.productLabel.layer.cornerRadius = 8
+//        self.productLabel.layer.masksToBounds = true
+//        self.productLabel.layer.borderColor = UIColor.grayColor().CGColor
+//        self.productLabel.layer.borderWidth = 0.5
         
         // conditionLabel
-        self.conditionLabel.layer.cornerRadius = 8
-        self.conditionLabel.layer.masksToBounds = true
-        self.conditionLabel.layer.borderColor = UIColor.grayColor().CGColor
-        self.conditionLabel.layer.borderWidth = 0.5
+//        self.conditionLabel.layer.cornerRadius = 8
+//        self.conditionLabel.layer.masksToBounds = true
+//        self.conditionLabel.layer.borderColor = UIColor.grayColor().CGColor
+//        self.conditionLabel.layer.borderWidth = 0.5
         
         // priceLabel
-        self.priceLabel.layer.cornerRadius = 8
-        self.priceLabel.layer.masksToBounds = true
-        self.priceLabel.layer.borderColor = UIColor.grayColor().CGColor
-        self.priceLabel.layer.borderWidth = 0.5
+//        self.priceLabel.layer.cornerRadius = 8
+//        self.priceLabel.layer.masksToBounds = true
+//        self.priceLabel.layer.borderColor = UIColor.grayColor().CGColor
+//        self.priceLabel.layer.borderWidth = 0.5
         
         // sellerLabel
-        self.sellerLabel.layer.cornerRadius = 8
-        self.sellerLabel.layer.masksToBounds = true
-        self.sellerLabel.layer.borderColor = UIColor.grayColor().CGColor
-        self.sellerLabel.layer.borderWidth = 0.5
+//        self.sellerLabel.layer.cornerRadius = 8
+//        self.sellerLabel.layer.masksToBounds = true
+//        self.sellerLabel.layer.borderColor = UIColor.grayColor().CGColor
+//        self.sellerLabel.layer.borderWidth = 0.5
         
         // phoneNumberLabel
-        self.phoneNumberLabel.layer.cornerRadius = 8
-        self.phoneNumberLabel.layer.masksToBounds = true
-        self.phoneNumberLabel.layer.borderColor = UIColor.grayColor().CGColor
-        self.phoneNumberLabel.layer.borderWidth = 0.5
+//        self.phoneNumberLabel.layer.cornerRadius = 8
+//        self.phoneNumberLabel.layer.masksToBounds = true
+//        self.phoneNumberLabel.layer.borderColor = UIColor.grayColor().CGColor
+//        self.phoneNumberLabel.layer.borderWidth = 0.5
         
         // eMailLabel
-        self.eMailLabel.layer.cornerRadius = 8
-        self.eMailLabel.layer.masksToBounds = true
-        self.eMailLabel.layer.borderColor = UIColor.grayColor().CGColor
-        self.eMailLabel.layer.borderWidth = 0.5
+//        self.eMailLabel.layer.cornerRadius = 8
+//        self.eMailLabel.layer.masksToBounds = true
+//        self.eMailLabel.layer.borderColor = UIColor.grayColor().CGColor
+//        self.eMailLabel.layer.borderWidth = 0.5
+//        self.eMailLabel.backgroundColor = UIColor.clearColor()
         
         // dateLabel
-        self.dateLabel.layer.cornerRadius = 8
-        self.dateLabel.layer.masksToBounds = true
-        self.dateLabel.layer.borderColor = UIColor.grayColor().CGColor
-        self.dateLabel.layer.borderWidth = 0.5
+//        self.dateLabel.layer.cornerRadius = 8
+//        self.dateLabel.layer.masksToBounds = true
+//        self.dateLabel.layer.borderColor = UIColor.grayColor().CGColor
+//        self.dateLabel.layer.borderWidth = 0.5
+        
+        
+        // Change color navigationbar button
+        UIBarButtonItem.appearance().tintColor = UIColor.blackColor()
+
     }
+    
 }
 
 

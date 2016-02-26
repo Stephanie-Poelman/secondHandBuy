@@ -20,6 +20,7 @@
 		5E6852721C731F70008A8FE1 /* AdvertisementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6852711C731F70008A8FE1 /* AdvertisementViewController.swift */; };
 		5E698C1F1C7B548A002E8C09 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E698C1E1C7B548A002E8C09 /* CustomCell.swift */; };
 		5E6B4C401C7A02840094CD45 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6B4C3F1C7A02840094CD45 /* DetailViewController.swift */; };
+		5E80542D1C7FE6E100820C57 /* Hanged Letters.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5E80542C1C7FE6E100820C57 /* Hanged Letters.ttf */; };
 		5E8280F81C75BC5F00A4948A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E8280F71C75BC5F00A4948A /* AudioToolbox.framework */; };
 		5E8280FA1C75BC6B00A4948A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E8280F91C75BC6B00A4948A /* CFNetwork.framework */; };
 		5E8280FC1C75BC7700A4948A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E8280FB1C75BC7700A4948A /* CoreGraphics.framework */; };
@@ -56,6 +57,7 @@
 		5E6852711C731F70008A8FE1 /* AdvertisementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementViewController.swift; sourceTree = "<group>"; };
 		5E698C1E1C7B548A002E8C09 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		5E6B4C3F1C7A02840094CD45 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		5E80542C1C7FE6E100820C57 /* Hanged Letters.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Hanged Letters.ttf"; sourceTree = "<group>"; };
 		5E8280F71C75BC5F00A4948A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		5E8280F91C75BC6B00A4948A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		5E8280FB1C75BC7700A4948A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -150,13 +152,14 @@
 				291AEE891C71EDE600DA8DBA /* MapViewController.swift */,
 				2993E4411C7F0F670081AC07 /* CustomAnnotation.swift */,
 				5E6852711C731F70008A8FE1 /* AdvertisementViewController.swift */,
-				5E6B4C3F1C7A02840094CD45 /* DetailViewController.swift */,
 				2993E4331C75D2D70081AC07 /* StoreAdvertisement.swift */,
 				5E698C1E1C7B548A002E8C09 /* CustomCell.swift */,
-				5E82810C1C75C09600A4948A /* Obj-C.m */,
+				5E6B4C3F1C7A02840094CD45 /* DetailViewController.swift */,
 				291AEE8E1C71EDE600DA8DBA /* Assets.xcassets */,
 				291AEE901C71EDE600DA8DBA /* LaunchScreen.storyboard */,
 				291AEE931C71EDE600DA8DBA /* Info.plist */,
+				5E82810C1C75C09600A4948A /* Obj-C.m */,
+				5E80542C1C7FE6E100820C57 /* Hanged Letters.ttf */,
 				5E82810B1C75C09600A4948A /* SecondHandBuy-Bridging-Header.h */,
 				5E82810E1C75C1DE00A4948A /* Bridging header.h */,
 				2993E4391C7736490081AC07 /* pradas-second hand.jpg */,
@@ -224,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2993E43A1C7736490081AC07 /* pradas-second hand.jpg in Resources */,
+				5E80542D1C7FE6E100820C57 /* Hanged Letters.ttf in Resources */,
 				291AEE921C71EDE600DA8DBA /* LaunchScreen.storyboard in Resources */,
 				291AEE8F1C71EDE600DA8DBA /* Assets.xcassets in Resources */,
 				2993E4321C7216D60081AC07 /* Main.storyboard in Resources */,
