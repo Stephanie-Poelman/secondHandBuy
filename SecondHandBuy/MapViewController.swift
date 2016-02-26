@@ -10,16 +10,15 @@ import UIKit
 import MapKit
 import CoreLocation
 
-
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     //Show current location user on map
     var locationManager: CLLocationManager!
-
-    @IBOutlet var mapView: MKMapView!
-
     
-// MARK: Functions
+    @IBOutlet var mapView: MKMapView!
+    
+    
+    // MARK: Functions
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         let identifier = "MyPin"
@@ -32,21 +31,19 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             
             return nil
         }
-            //Show Image with pin
-            
-            var customAnnotation = annotation as! CustomAnnotation
-            
-            let image = customAnnotation.object!["picture"] as! PFFile
-            
-            let leftIconView = PFImageView (frame: CGRectMake(0, 0, 53, 53))
-            leftIconView.file = image
-            annotationView?.leftCalloutAccessoryView = leftIconView
+        
+        //Show Image with pin
+        let customAnnotation = annotation as! CustomAnnotation
+        
+        let image = customAnnotation.object!["picture"] as! PFFile
+        
+        let leftIconView = PFImageView (frame: CGRectMake(0, 0, 53, 53))
+        leftIconView.file = image
+        annotationView?.leftCalloutAccessoryView = leftIconView
         
         leftIconView.loadInBackground()
         
-        
-        
-//        //Reuse the annotation if possible
+        //Reuse the annotation if possible
         
         if annotationView == nil {
             annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
@@ -54,18 +51,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
         
         return annotationView
-    
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-    retrieveLocationAdvertisement()
         
-        // Do any additional setup after loading the view, typically from a nib.
+        //Call function
+        retrieveLocationAdvertisement()
+        
+        // Do any additional setup after loading the view, typically from a nib (= what is getting created when you build).
         
         mapView.delegate = self
         
+        //Set region that is displayed on map to Amsterdam
         let amsterdam =
         MKCoordinateRegionMake(CLLocationCoordinate2DMake(52.3470959,
             4.8300982), MKCoordinateSpanMake(0.2, 0.2))
@@ -90,28 +89,28 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let status = CLLocationManager.authorizationStatus()
         if status == .NotDetermined || status == .Denied || status
             == .AuthorizedWhenInUse {
-            // present an alert indicating location authorization required
-            // and offer to take the user to Settings for the app via
-            // UIApplication -openUrl: and UIApplicationOpenSettingsURLString
-            locationManager.requestAlwaysAuthorization()
-            locationManager.requestWhenInUseAuthorization()
+                
+                // present an alert indicating location authorization required
+                // and offer to take the user to Settings for the app via
+                // UIApplication -openUrl: and UIApplicationOpenSettingsURLString
+                locationManager.requestAlwaysAuthorization()
+                locationManager.requestWhenInUseAuthorization()
+                
         }
+        
         locationManager.startUpdatingLocation()
         locationManager.startUpdatingHeading()
         
         mapView.showsUserLocation = true
-    
         
     }
     
     func locationManager(manager: CLLocationManager, didUpdateToLocation
         newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
-        let region = MKCoordinateRegionMakeWithDistance(
-        newLocation.coordinate, 2000, 2000)
-        mapView.setRegion(region, animated: true)
-           
+            let region = MKCoordinateRegionMakeWithDistance(
+                newLocation.coordinate, 2000, 2000)
+            mapView.setRegion(region, animated: true)
     }
-    
     
     func retrieveLocationAdvertisement() {
         
@@ -121,36 +120,34 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         // Call find Object in Background
         query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
             
-            
             // Loop through objectID's
             for productStoreObject in objects! {
-            
-            print(productStoreObject)
                 
-            //retrieve the value of the location object
-            let currentLocation = productStoreObject["location"] as? PFGeoPoint
-            let titleAdvertisement = productStoreObject["titleAdvertisement"] as? String
-            
-            let price = productStoreObject["price"] as? String
+                print(productStoreObject)
                 
-
-           // make constant of current location user
+                //retrieve the value of the location object
+                let currentLocation = productStoreObject["location"] as? PFGeoPoint
+                let titleAdvertisement = productStoreObject["titleAdvertisement"] as? String
+                
+                let price = productStoreObject["price"] as? String
+                
+                // make constant of current location user
                 if let currentLong = currentLocation?.longitude {
-                if let currentlat = currentLocation?.latitude {
-            
-            let location = CLLocationCoordinate2D(latitude: currentlat, longitude: currentLong)
-                
-            let annotation = CustomAnnotation(currentObject: productStoreObject)
-                    
-                    
-                annotation.title = titleAdvertisement
-                annotation.coordinate = location
-                annotation.subtitle = "€ \(price!)"
-            
-                self.mapView.showAnnotations([annotation], animated: true)
-                self.mapView.selectAnnotation(annotation, animated: true)
-                
-            print(currentLocation)
+                    if let currentlat = currentLocation?.latitude {
+                        
+                        let location = CLLocationCoordinate2D(latitude: currentlat, longitude: currentLong)
+                        
+                        let annotation = CustomAnnotation(currentObject: productStoreObject)
+                        
+                        
+                        annotation.title = titleAdvertisement
+                        annotation.coordinate = location
+                        annotation.subtitle = "€ \(price!)"
+                        
+                        self.mapView.showAnnotations([annotation], animated: true)
+                        self.mapView.selectAnnotation(annotation, animated: true)
+                        
+                        print(currentLocation)
                         
                     } }
             }
