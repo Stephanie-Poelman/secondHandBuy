@@ -23,14 +23,21 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         let identifier = "MyPin"
         
+        
+        
         //Reuse the annotation if possible
-        var annotationView:MKPinAnnotationView? =
-        mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) as? MKPinAnnotationView
+        var annotationView:MKAnnotationView? =
+        mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
         
         if annotation.isKindOfClass(MKUserLocation) {
             
             return nil
         }
+    
+        annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+        annotationView!.canShowCallout = true
+        
+        
         
         //Show Image with pin
         let customAnnotation = annotation as! CustomAnnotation
@@ -43,14 +50,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         leftIconView.loadInBackground()
         
-        //Reuse the annotation if possible
-        
-        if annotationView == nil {
-            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            annotationView?.canShowCallout = true
-        }
+        annotationView!.image = UIImage(named: "pinicon-1")
+
         
         return annotationView
+    
         
     }
     

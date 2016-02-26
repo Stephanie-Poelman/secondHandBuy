@@ -2,13 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <mutableArray key="Hanged Letters.ttf">
-            <string>HangingLetters</string>
-        </mutableArray>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -22,43 +16,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orange" translatesAutoresizingMaskIntoConstraints="NO" id="EOh-0W-oFb">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="MarktKraam_Fotor" translatesAutoresizingMaskIntoConstraints="NO" id="GkE-Jc-NaM">
-                                <rect key="frame" x="0.0" y="-1" width="375" height="104"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Buy Second Hand" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ymW-Sq-f5O">
-                                <rect key="frame" x="20" y="103" width="335" height="53"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="53" id="fGF-w4-1Gq"/>
-                                    <constraint firstAttribute="height" constant="53" id="yAZ-03-1PW"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HangingLetters" family="Hanging Letters" pointSize="50"/>
-                                <color key="textColor" red="0.95994728799999995" green="0.98847800490000004" blue="0.98435384039999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Open24Hrs_Fotor" translatesAutoresizingMaskIntoConstraints="NO" id="5yr-e3-ei9">
-                                <rect key="frame" x="67" y="270" width="240" height="128"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Schermafbeelding 2016-02-26 om 11.40.30" translatesAutoresizingMaskIntoConstraints="NO" id="EOh-0W-oFb">
+                                <rect key="frame" x="-4" y="-21" width="383" height="705"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.20607635671197699" green="0.53673978827457569" blue="0.6715344551282052" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="ymW-Sq-f5O" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="5mi-Tm-wEQ"/>
-                            <constraint firstItem="ymW-Sq-f5O" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="86J-F5-7lB"/>
-                            <constraint firstItem="5yr-e3-ei9" firstAttribute="top" secondItem="ymW-Sq-f5O" secondAttribute="bottom" constant="114" id="9Ls-iv-rp5"/>
-                            <constraint firstItem="EOh-0W-oFb" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="CSi-f6-5Ci"/>
-                            <constraint firstAttribute="trailing" secondItem="EOh-0W-oFb" secondAttribute="trailing" id="LFg-U3-aUv"/>
-                            <constraint firstItem="EOh-0W-oFb" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="OTn-Wi-1ok"/>
-                            <constraint firstItem="ymW-Sq-f5O" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailingMargin" id="RyG-2Z-gXg"/>
-                            <constraint firstItem="5yr-e3-ei9" firstAttribute="centerX" secondItem="EOh-0W-oFb" secondAttribute="centerX" id="Vim-Wp-u6H"/>
-                            <constraint firstItem="5yr-e3-ei9" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="47" id="Z3c-3v-J8u"/>
-                            <constraint firstItem="ymW-Sq-f5O" firstAttribute="centerX" secondItem="GkE-Jc-NaM" secondAttribute="centerX" id="eYn-7K-dFq"/>
-                            <constraint firstItem="ymW-Sq-f5O" firstAttribute="top" secondItem="GkE-Jc-NaM" secondAttribute="bottom" id="hoj-KB-fyn"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="5yr-e3-ei9" secondAttribute="bottom" constant="269" id="lq1-EH-9oj"/>
-                            <constraint firstItem="EOh-0W-oFb" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="o7z-Ox-269"/>
-                            <constraint firstItem="5yr-e3-ei9" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="250" id="q2X-6f-4wT"/>
-                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
@@ -68,8 +29,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="MarktKraam_Fotor" width="397" height="87"/>
-        <image name="Open24Hrs_Fotor" width="330" height="330"/>
-        <image name="orange" width="1600" height="900"/>
+        <image name="Schermafbeelding 2016-02-26 om 11.40.30" width="376" height="674"/>
     </resources>
 </document>

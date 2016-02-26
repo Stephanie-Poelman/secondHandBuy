@@ -77,6 +77,15 @@ class HomeScreenViewController: UIViewController, UINavigationControllerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        for family: String in UIFont.familyNames()
+        {
+            print("\(family)")
+            for names: String in UIFont.fontNamesForFamilyName(family)
+            {
+                print("== \(names)")
+            }
+        }
+        
         
         // Make transparant button
 //        self.map.layer.borderColor = UIColor.grayColor().CGColor
