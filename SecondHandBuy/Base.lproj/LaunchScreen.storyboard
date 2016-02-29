@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,10 +17,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Schermafbeelding 2016-02-26 om 11.40.30" translatesAutoresizingMaskIntoConstraints="NO" id="EOh-0W-oFb">
-                                <rect key="frame" x="-4" y="-21" width="383" height="705"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Schermafbeelding 2016-02-26 om 11.40.30" translatesAutoresizingMaskIntoConstraints="NO" id="ash-ax-QWF">
+                                <rect key="frame" x="-8" y="-32" width="390" height="728"/>
                             </imageView>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottomMargin" secondItem="ash-ax-QWF" secondAttribute="bottom" constant="-29" id="DqM-D9-dl8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ash-ax-QWF" secondAttribute="trailing" constant="-27" id="Xt9-WU-oR7"/>
+                            <constraint firstItem="ash-ax-QWF" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-28" id="gvu-mB-zk9"/>
+                            <constraint firstItem="ash-ax-QWF" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" constant="-32" id="tNW-iF-qQb"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>

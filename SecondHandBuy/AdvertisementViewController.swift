@@ -97,49 +97,49 @@ class AdvertisementViewController: UIViewController,  UITextFieldDelegate, CLLoc
             if (successful) {
                 print("Entry saved successfully")
                 
-                // Notify saving was successful
-                
+//                // Notify saving was successful
+//                
                 // Design Alert
                 let title = "Alert"
                 let message = "Saving was successful"
-                let homeText = "Home"
-                let mapPageText = "Map"
-                let advertisementPage = "Advertisements"
-                
-                
-                // Make Alert
-                let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-                
-                // Action button for HomeScreen
-                let homeButton = UIAlertAction(title: homeText, style: UIAlertActionStyle.Default, handler: {(homeButton) -> Void in
-                    self.dismissViewControllerAnimated(true, completion: nil)})
-                
-                // Button for MapView
-                
-                // Call MapViewController
-                let mapView = self.storyboard?.instantiateViewControllerWithIdentifier("mapView") as! MapViewController
-                
-                // Action button
-                let mapButton = UIAlertAction(title: mapPageText, style: UIAlertActionStyle.Default, handler: {(mapButton) -> Void in
-                    self.presentViewController(mapView, animated: true, completion: nil)})
-                
-                // Button for StoreAdvertisement
-                
-                // Call StoreAdvertisementViewController
-                let storeAdvertisementView = self.storyboard?.instantiateViewControllerWithIdentifier("storeAdvertisementView") as! StoreAdvertisement
-                
-                // Action button
-                let storeAdvertisementButton = UIAlertAction(title: advertisementPage, style: UIAlertActionStyle.Default, handler: {(storeAdvertisementButton) -> Void in
-                    self.navigationController?.presentViewController(storeAdvertisementView, animated: true, completion: nil)})
-                
-                
-                // Add buttons
-                alert.addAction(homeButton)
-                alert.addAction(mapButton)
-                alert.addAction(storeAdvertisementButton)
-                
-                
-                self.presentViewController(alert, animated: true, completion: nil)
+//                let homeText = "Home"
+//                let mapPageText = "Map"
+//                let advertisementPage = "Advertisements"
+//                
+//                
+//                // Make Alert
+//                let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+//                
+//                // Action button for HomeScreen
+//                let homeButton = UIAlertAction(title: homeText, style: UIAlertActionStyle.Default, handler: {(homeButton) -> Void in
+//                    self.dismissViewControllerAnimated(true, completion: nil)})
+//                
+//                // Button for MapView
+//                
+//                // Call MapViewController
+//                let mapView = self.storyboard?.instantiateViewControllerWithIdentifier("mapView") as! MapViewController
+//                
+//                // Action button
+//                let mapButton = UIAlertAction(title: mapPageText, style: UIAlertActionStyle.Default, handler: {(mapButton) -> Void in
+//                    self.presentViewController(mapView, animated: true, completion: nil)})
+//                
+//                // Button for StoreAdvertisement
+//                
+//                // Call StoreAdvertisementViewController
+//                let storeAdvertisementView = self.storyboard?.instantiateViewControllerWithIdentifier("storeAdvertisementView") as! StoreAdvertisement
+//                
+//                // Action button
+//                let storeAdvertisementButton = UIAlertAction(title: advertisementPage, style: UIAlertActionStyle.Default, handler: {(storeAdvertisementButton) -> Void in
+//                    self.navigationController?.presentViewController(storeAdvertisementView, animated: true, completion: nil)})
+//                
+//                
+//                // Add buttons
+//                alert.addAction(homeButton)
+//                alert.addAction(mapButton)
+//                alert.addAction(storeAdvertisementButton)
+//                
+//                
+//                self.presentViewController(alert, animated: true, completion: nil)
                 
             }
                 // End if successfully

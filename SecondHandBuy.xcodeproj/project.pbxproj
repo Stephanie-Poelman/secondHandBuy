@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		291AEE881C71EDE600DA8DBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291AEE871C71EDE600DA8DBA /* AppDelegate.swift */; };
 		291AEE8A1C71EDE600DA8DBA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291AEE891C71EDE600DA8DBA /* MapViewController.swift */; };
-		291AEE8F1C71EDE600DA8DBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 291AEE8E1C71EDE600DA8DBA /* Assets.xcassets */; };
 		291AEE921C71EDE600DA8DBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 291AEE901C71EDE600DA8DBA /* LaunchScreen.storyboard */; };
 		2993E4321C7216D60081AC07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2993E4311C7216D60081AC07 /* Main.storyboard */; };
 		2993E4341C75D2D70081AC07 /* StoreAdvertisement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2993E4331C75D2D70081AC07 /* StoreAdvertisement.swift */; };
@@ -39,13 +38,13 @@
 		5E82811A1C75C41400A4948A /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E8281141C75C41400A4948A /* ParseFacebookUtilsV4.framework */; };
 		5E82811B1C75C41400A4948A /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E8281151C75C41400A4948A /* ParseTwitterUtils.framework */; };
 		5E82811C1C75C41400A4948A /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E8281161C75C41400A4948A /* ParseUI.framework */; };
+		5ECD30F91C80889000323752 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5ECD30F81C80889000323752 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		291AEE841C71EDE600DA8DBA /* SecondHandBuy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecondHandBuy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		291AEE871C71EDE600DA8DBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		291AEE891C71EDE600DA8DBA /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		291AEE8E1C71EDE600DA8DBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		291AEE911C71EDE600DA8DBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		291AEE931C71EDE600DA8DBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2993E4311C7216D60081AC07 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
@@ -78,6 +77,7 @@
 		5E8281141C75C41400A4948A /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		5E8281151C75C41400A4948A /* ParseTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseTwitterUtils.framework; sourceTree = "<group>"; };
 		5E8281161C75C41400A4948A /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		5ECD30F81C80889000323752 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,7 +155,7 @@
 				2993E4331C75D2D70081AC07 /* StoreAdvertisement.swift */,
 				5E698C1E1C7B548A002E8C09 /* CustomCell.swift */,
 				5E6B4C3F1C7A02840094CD45 /* DetailViewController.swift */,
-				291AEE8E1C71EDE600DA8DBA /* Assets.xcassets */,
+				5ECD30F81C80889000323752 /* Assets.xcassets */,
 				291AEE901C71EDE600DA8DBA /* LaunchScreen.storyboard */,
 				291AEE931C71EDE600DA8DBA /* Info.plist */,
 				5E82810C1C75C09600A4948A /* Obj-C.m */,
@@ -199,7 +199,7 @@
 				TargetAttributes = {
 					291AEE831C71EDE600DA8DBA = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = BSS24J6H76;
+						DevelopmentTeam = LABE395DZY;
 					};
 				};
 			};
@@ -229,8 +229,8 @@
 				2993E43A1C7736490081AC07 /* pradas-second hand.jpg in Resources */,
 				5E80542D1C7FE6E100820C57 /* Hanged Letters.ttf in Resources */,
 				291AEE921C71EDE600DA8DBA /* LaunchScreen.storyboard in Resources */,
-				291AEE8F1C71EDE600DA8DBA /* Assets.xcassets in Resources */,
 				2993E4321C7216D60081AC07 /* Main.storyboard in Resources */,
+				5ECD30F91C80889000323752 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,7 +362,7 @@
 				INFOPLIST_FILE = SecondHandBuy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Kithin-en-Stephanie.SecogndHandBuy";
+				PRODUCT_BUNDLE_IDENTIFIER = com.KithinEnStephanie.SecogndHandBuy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SecondHandBuy/SecondHandBuy-Bridging-Header.h";
@@ -384,7 +384,7 @@
 				INFOPLIST_FILE = SecondHandBuy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Kithin-en-Stephanie.SecogndHandBuy";
+				PRODUCT_BUNDLE_IDENTIFIER = com.KithinEnStephanie.SecogndHandBuy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SecondHandBuy/SecondHandBuy-Bridging-Header.h";
